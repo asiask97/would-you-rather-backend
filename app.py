@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///qanda.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nacehrgeaegyja:8c518e59d0b2c65644904063311acaebba98d7376d9064b77e5f2520c97a3a47@ec2-44-206-197-71.compute-1.amazonaws.com:5432/dfdi2279vjc4ke'
 
 # Initialize the database 
 db = SQLAlchemy(app)

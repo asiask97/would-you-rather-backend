@@ -2,12 +2,13 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
-
+import os
 
 app = Flask(__name__)
 CORS(app)
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY") 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://nacehrgeaegyja:8c518e59d0b2c65644904063311acaebba98d7376d9064b77e5f2520c97a3a47@ec2-44-206-197-71.compute-1.amazonaws.com:5432/dfdi2279vjc4ke'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL") 
 
 # Initialize the database 
 db = SQLAlchemy(app)
